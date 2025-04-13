@@ -1,2 +1,2 @@
-Project to help automatiopn involving client and network IPs.
+Project to help automation involving client and network IPs.
 
