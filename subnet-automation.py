@@ -20,6 +20,16 @@ def cidr_to_subnet_mask(cidr: str):
     return mask_bytes
 
 def get_network_address(client_ip: str):
+    """
+    Get the network IP from the input of a client IP.
+
+    Parameters: 
+    client_ip (str): Client IP including CIDR (ex. /30)
+
+    Return:
+    network IP (str): The network IP based on client IP and CIDR.
+    """
+
     ip , cidr = client_ip.split("/")
     octets = ip.split(".")
     int_cidr = int(cidr)
