@@ -1,4 +1,14 @@
 def cidr_to_subnet_mask(cidr: str):
+    """
+    Get subnet mask from CIDR format.
+
+    Parameters:
+    cidr (str) : cidr string (ex. 30, 16)
+
+    Returns:
+    string: The subnmet mask as string of bits (ex. 11111111 11111111 11111111 11111100)
+    """
+
     cidr = int(cidr)
     if cidr < 0 or cidr > 32:
         raise ValueError("CIDR must be between 0 and 32.")
@@ -12,7 +22,6 @@ def cidr_to_subnet_mask(cidr: str):
 def get_network_address(client_ip: str):
     ip , cidr = client_ip.split("/")
     octets = ip.split(".")
-    network_mask = cidr_to_subnet_mask(cidr)
     int_cidr = int(cidr)
 
     mask_bin = (0xFFFFFFFF << (32 - int_cidr)) & 0xFFFFFFFF
